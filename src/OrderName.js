@@ -5,6 +5,6 @@ export default function OrderName({ setOrderName }) {
     setOrderName(e.target.value);
   };
   return <div>
-    <input onChange={handleChange}></input>
+    <input onChange={handleChange} placeholder='Enter Name For Order'></input>
   </div>;
 }

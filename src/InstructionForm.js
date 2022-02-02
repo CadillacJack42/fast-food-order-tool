@@ -14,7 +14,7 @@ export default function InstructionForm({ setInstructions, instructions }) {
   };
   return <div>
     <form onSubmit={handleSubmit}>
-      <input required onChange={handleChange} value={instructionInput}></input>
+      <input required onChange={handleChange} value={instructionInput} placeholder='Instructions'></input>
       <button type='sumbit'>Submit Instruction</button>
     </form>
   </div>;

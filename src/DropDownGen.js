@@ -5,8 +5,8 @@ export default function DropDownGen({ setter, value, array }) {
     return setter(e.target.value);
   };
   return <div>
-    <select onChange={handleChange}>
       Select {value} Item
+    <select onChange={handleChange}>
       {array.map((item, i) => {
         return <option key={item + i} value={i + 1}>{item}</option>;
       })}
