@@ -3,6 +3,8 @@ import './App.css';
 import DropDownGen from './DropDownGen';
 import OrderName from './OrderName';
 import Images from './Images';
+import InstructionForm from './InstructionForm';
+import InstructionsList from './InstructionsList';
 
 function App() {
   const [foodId, setFoodId] = useState(1);
@@ -34,7 +36,11 @@ function App() {
         value={'side'}
         array={['fries', 'soup', 'side salad']}
       />
-      
+      <InstructionForm 
+        setInstructions={setInstructions}
+        instructions={instructions}  
+      />
+      <InstructionsList instructions={instructions} />
     </div>
   );
 }
