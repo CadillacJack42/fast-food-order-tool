@@ -1,23 +1,46 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import DropDownGen from './DropDownGen';
+import OrderName from './OrderName';
+import Images from './Images';
+import InstructionForm from './InstructionForm';
+import InstructionsList from './InstructionsList';
 
 function App() {
+  const [foodId, setFoodId] = useState(1);
+  const [sideId, setSideId] = useState(1);
+  const [drinkId, setDrinkId] = useState(1);
+  const [instructions, setInstructions] = useState([]);
+  const [orderName, setOrderName] = useState('Valued Customer');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Images 
+        foodId={foodId}
+        drinkId={drinkId}
+        sideId={sideId}
+      />
+      <OrderName setOrderName={setOrderName}/>
+      <p>Order for: {orderName}</p>
+      <DropDownGen 
+        setter={setFoodId}
+        value={'food'}
+        array={['burger', 'sandwich', 'salad']}
+      />
+      <DropDownGen 
+        setter={setDrinkId}
+        value={'drink'}
+        array={['soda', 'water', 'juice']}
+      />
+      <DropDownGen 
+        setter={setSideId}
+        value={'side'}
+        array={['fries', 'soup', 'side salad']}
+      />
+      <InstructionForm 
+        setInstructions={setInstructions}
+        instructions={instructions}  
+      />
+      <InstructionsList instructions={instructions} />
     </div>
   );
 }
